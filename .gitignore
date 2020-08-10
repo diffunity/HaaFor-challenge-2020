@@ -132,3 +132,4 @@ dmypy.json
 # ignore
 augmented_data.csv
 train.csv
+config.ini
