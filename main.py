@@ -11,6 +11,11 @@ import time
 #     XLNetModel, XLNetTokenizer,
 #     RobertaModel, RobertaTokenizer
 # )
+
+def main():
+    
+
+
 if __name__ == "__main__":
 
     config = configparser.ConfigParser()
