@@ -1,0 +1,27 @@
+Pretrained path directory exists:  True
+Pretrained path:  ./model_pretrained/albert-proper/
+Train new?  True
+You have designated existing directory but wish to train a new model. 
+              The newly trained model will overwrite the existing model. 
+              Stop if you wish to keep the existing model in the directory
+Loading Dataset...
+Dataset Loaded...
+Train dataset size: 280000
+Test dataset size: 120000
+Total training steps:  21875.0
+Begin Training...
+Epoch 0
+Batch 0 Loss : 0.04570605605840683
+Ground Truth: [1, 1, 1, 1] 	 Predicted: [0, 1, 0, 1]
+Traceback (most recent call last):
+  File "main.py", line 178, in <module>
+    main(args)
+  File "main.py", line 23, in main
+    loss_hist, acc_hist = train(args.model, AdamW, train_set, args)
+  File "/workspace/JungHo/HaaFor-challenge-2020/model.py", line 86, in train
+    loss.backward()
+  File "/workspace/JungHo/venv/lib/python3.6/site-packages/torch/tensor.py", line 198, in backward
+    torch.autograd.backward(self, gradient, retain_graph, create_graph)
+  File "/workspace/JungHo/venv/lib/python3.6/site-packages/torch/autograd/__init__.py", line 100, in backward
+    allow_unreachable=True)  # allow_unreachable flag
+KeyboardInterrupt

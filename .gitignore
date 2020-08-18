@@ -130,6 +130,9 @@ dmypy.json
 
 
 # ignore
-augmented_data.csv
+data/
 train.csv
 config.ini
+example.txt
+toy/
+model_pretrained/

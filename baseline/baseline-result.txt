@@ -1,0 +1,47 @@
+Loading Dataset...
+Dataset Loaded...
+Train dataset size: 360000
+Test dataset size: 40000
+Begin Evaluation...
+Data batch 0
+Ground Truth: [0, 1] 	 Predicted: [1, 0]
+Data batch 2000
+Ground Truth: [1, 1] 	 Predicted: [0, 0]
+Data batch 4000
+Ground Truth: [0, 1] 	 Predicted: [0, 0]
+Traceback (most recent call last):
+  File "baseline.py", line 71, in <module>
+    main(args)
+  File "baseline.py", line 25, in main
+    gt, pred = test(args.model, test_set, args)
+  File "../model.py", line 135, in test
+  File "/workspace/JungHo/venv/lib/python3.6/site-packages/torch/nn/modules/module.py", line 550, in __call__
+    result = self.forward(*input, **kwargs)
+  File "../model.py", line 35, in forward
+  File "/workspace/JungHo/venv/lib/python3.6/site-packages/torch/nn/modules/module.py", line 550, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/workspace/JungHo/venv/lib/python3.6/site-packages/transformers/modeling_albert.py", line 563, in forward
+    output_hidden_states=output_hidden_states,
+  File "/workspace/JungHo/venv/lib/python3.6/site-packages/torch/nn/modules/module.py", line 550, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/workspace/JungHo/venv/lib/python3.6/site-packages/transformers/modeling_albert.py", line 346, in forward
+    output_hidden_states,
+  File "/workspace/JungHo/venv/lib/python3.6/site-packages/torch/nn/modules/module.py", line 550, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/workspace/JungHo/venv/lib/python3.6/site-packages/transformers/modeling_albert.py", line 299, in forward
+    layer_output = albert_layer(hidden_states, attention_mask, head_mask[layer_index], output_attentions)
+  File "/workspace/JungHo/venv/lib/python3.6/site-packages/torch/nn/modules/module.py", line 550, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/workspace/JungHo/venv/lib/python3.6/site-packages/transformers/modeling_albert.py", line 277, in forward
+    attention_output = self.attention(hidden_states, attention_mask, head_mask, output_attentions)
+  File "/workspace/JungHo/venv/lib/python3.6/site-packages/torch/nn/modules/module.py", line 550, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/workspace/JungHo/venv/lib/python3.6/site-packages/transformers/modeling_albert.py", line 219, in forward
+    mixed_query_layer = self.query(input_ids)
+  File "/workspace/JungHo/venv/lib/python3.6/site-packages/torch/nn/modules/module.py", line 550, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/workspace/JungHo/venv/lib/python3.6/site-packages/torch/nn/modules/linear.py", line 87, in forward
+    return F.linear(input, self.weight, self.bias)
+  File "/workspace/JungHo/venv/lib/python3.6/site-packages/torch/nn/functional.py", line 1612, in linear
+    output = input.matmul(weight.t())
+KeyboardInterrupt
