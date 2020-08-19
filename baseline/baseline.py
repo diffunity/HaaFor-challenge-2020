@@ -51,7 +51,7 @@ if __name__ == "__main__":
                         type=str)
 
     parser.add_argument("--train_size",
-                        default=0.9,
+                        default=0.5,
                         type=float,
                         help="Training Size (ratio)")
 
