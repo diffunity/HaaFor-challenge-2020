@@ -3,7 +3,7 @@ import time
 import random
 import torch
 from torch.nn import CrossEntropyLoss
-from transformers import get_cosine_schedule_with_warmup, get_linear_schedule_with_warmup
+from transformers import get_cosine_schedule_with_warmup
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
@@ -58,7 +58,7 @@ def train(model, optimizer, dataset, args):
     # model = NSP(model).to(device)
     model = model.to(device)
     optimizer = NSP.opt(optimizer, model, args)
-    # scheduler = get_cosine_schedule_with_warmup(optimizer, num_warmup_steps=0, num_training_steps=1)
+    scheduler = get_cosine_schedule_with_warmup(optimizer, num_warmup_steps=args.warmup_steps, num_training_steps=args.training_steps)
     
     model.train()
 
@@ -78,7 +78,8 @@ def train(model, optimizer, dataset, args):
             
             output = model(input_ids=input_ids,
                            token_type_ids=token_type_ids,
-                           attention_mask=attention_mask)
+                           attention_mask=attention_mask,
+                           cls_pos=args.cls_pos)
 
             loss = CrossEntropyLoss()(output, tar)
 
@@ -90,7 +91,7 @@ def train(model, optimizer, dataset, args):
             if not data_e % args.gradient_accumulation_steps:
                 loss_hist.append(loss.item())
                 optimizer.step()
-                # scheduler.step()
+                scheduler.step()
                 optimizer.zero_grad()
                 acc_hist.append(accuracy)
                 accuracy = 0
@@ -124,23 +125,25 @@ def test(model, dataset, args):
 
     print("Begin Evaluation...")
     ctime = time.time()
-    for data_e, (inp, tar) in enumerate(dataset):
-        
-        input_ids, token_type_ids, attention_mask = inp["input_ids"].to(device), \
-                                                    inp["token_type_ids"].to(device), \
-                                                    inp["attention_mask"].to(device)
-        
-        output = model(input_ids=input_ids,
-                        token_type_ids=token_type_ids,
-                        attention_mask=attention_mask)
-        
-        gt.extend(tar.tolist())
-        pred.extend(output.argmax(1).tolist())
-        
-        if not data_e % 2000:
-            print(f"Data batch {data_e}")
-            print(f"Ground Truth: {tar.tolist()} \t Predicted: {output.argmax(1).tolist()}")
-    print(f"Evaluation time for dataset size {len(dataset.dataset)} : {round( (time.time() - ctime) / 60, 2 )} MINUTES")
+
+    with torch.no_grad():
+        for data_e, (inp, tar) in enumerate(dataset):
+            
+            input_ids, token_type_ids, attention_mask = inp["input_ids"].to(device), \
+                                                        inp["token_type_ids"].to(device), \
+                                                        inp["attention_mask"].to(device)
+            
+            output = model(input_ids=input_ids,
+                            token_type_ids=token_type_ids,
+                            attention_mask=attention_mask)
+            
+            gt.extend(tar.tolist())
+            pred.extend(output.argmax(1).tolist())
+            
+            if not data_e % 2000:
+                print(f"Data batch {data_e}")
+                print(f"Ground Truth: {tar.tolist()} \t Predicted: {output.argmax(1).tolist()}")
+        print(f"Evaluation time for dataset size {len(dataset.dataset)} : {round( (time.time() - ctime) / 60, 2 )} MINUTES")
     return gt, pred
 
 

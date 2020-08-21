@@ -1,0 +1,120 @@
+Some weights of the model checkpoint at bert-base-uncased were not used when initializing BertForNextSentencePrediction: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertForNextSentencePrediction from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPretraining model).
+- This IS NOT expected if you are initializing BertForNextSentencePrediction from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Loading Dataset...
+Dataset Loaded...
+Train dataset size: 200000
+Test dataset size: 200000
+Begin Evaluation...
+Data batch 0
+Ground Truth: [0, 1] 	 Predicted: [0, 0]
+Data batch 2000
+Ground Truth: [0, 0] 	 Predicted: [0, 0]
+Data batch 4000
+Ground Truth: [0, 1] 	 Predicted: [0, 0]
+Data batch 6000
+Ground Truth: [0, 1] 	 Predicted: [0, 0]
+Data batch 8000
+Ground Truth: [0, 0] 	 Predicted: [0, 0]
+Data batch 10000
+Ground Truth: [0, 0] 	 Predicted: [0, 0]
+Data batch 12000
+Ground Truth: [1, 1] 	 Predicted: [0, 0]
+Data batch 14000
+Ground Truth: [0, 0] 	 Predicted: [0, 0]
+Data batch 16000
+Ground Truth: [0, 1] 	 Predicted: [0, 0]
+Data batch 18000
+Ground Truth: [1, 1] 	 Predicted: [0, 0]
+Data batch 20000
+Ground Truth: [1, 1] 	 Predicted: [0, 0]
+Data batch 22000
+Ground Truth: [1, 0] 	 Predicted: [0, 0]
+Data batch 24000
+Ground Truth: [1, 1] 	 Predicted: [0, 0]
+Data batch 26000
+Ground Truth: [1, 0] 	 Predicted: [0, 0]
+Data batch 28000
+Ground Truth: [0, 0] 	 Predicted: [0, 0]
+Data batch 30000
+Ground Truth: [0, 0] 	 Predicted: [0, 0]
+Data batch 32000
+Ground Truth: [0, 0] 	 Predicted: [0, 0]
+Data batch 34000
+Ground Truth: [1, 1] 	 Predicted: [0, 0]
+Data batch 36000
+Ground Truth: [1, 0] 	 Predicted: [0, 0]
+Data batch 38000
+Ground Truth: [0, 1] 	 Predicted: [0, 0]
+Data batch 40000
+Ground Truth: [0, 1] 	 Predicted: [0, 0]
+Data batch 42000
+Ground Truth: [0, 1] 	 Predicted: [0, 0]
+Data batch 44000
+Ground Truth: [1, 0] 	 Predicted: [0, 0]
+Data batch 46000
+Ground Truth: [1, 0] 	 Predicted: [0, 0]
+Data batch 48000
+Ground Truth: [1, 1] 	 Predicted: [0, 0]
+Data batch 50000
+Ground Truth: [1, 0] 	 Predicted: [0, 0]
+Data batch 52000
+Ground Truth: [0, 0] 	 Predicted: [0, 0]
+Data batch 54000
+Ground Truth: [1, 0] 	 Predicted: [0, 0]
+Data batch 56000
+Ground Truth: [1, 1] 	 Predicted: [0, 0]
+Data batch 58000
+Ground Truth: [1, 1] 	 Predicted: [0, 0]
+Data batch 60000
+Ground Truth: [0, 1] 	 Predicted: [0, 0]
+Data batch 62000
+Ground Truth: [1, 1] 	 Predicted: [0, 0]
+Data batch 64000
+Ground Truth: [1, 0] 	 Predicted: [0, 0]
+Data batch 66000
+Ground Truth: [0, 1] 	 Predicted: [0, 0]
+Data batch 68000
+Ground Truth: [1, 1] 	 Predicted: [0, 0]
+Data batch 70000
+Ground Truth: [1, 0] 	 Predicted: [0, 0]
+Data batch 72000
+Ground Truth: [0, 1] 	 Predicted: [0, 0]
+Data batch 74000
+Ground Truth: [0, 0] 	 Predicted: [0, 0]
+Data batch 76000
+Ground Truth: [0, 0] 	 Predicted: [0, 0]
+Data batch 78000
+Ground Truth: [1, 1] 	 Predicted: [0, 0]
+Data batch 80000
+Ground Truth: [0, 1] 	 Predicted: [0, 0]
+Data batch 82000
+Ground Truth: [0, 0] 	 Predicted: [0, 0]
+Data batch 84000
+Ground Truth: [1, 1] 	 Predicted: [0, 0]
+Data batch 86000
+Ground Truth: [0, 0] 	 Predicted: [0, 0]
+Data batch 88000
+Ground Truth: [1, 0] 	 Predicted: [0, 0]
+Data batch 90000
+Ground Truth: [1, 0] 	 Predicted: [0, 0]
+Data batch 92000
+Ground Truth: [1, 1] 	 Predicted: [0, 0]
+Data batch 94000
+Ground Truth: [0, 1] 	 Predicted: [0, 0]
+Data batch 96000
+Ground Truth: [0, 1] 	 Predicted: [0, 0]
+Data batch 98000
+Ground Truth: [0, 1] 	 Predicted: [0, 0]
+Evaluation time for dataset size 200000 : 40.46 MINUTES
+Final Accuracy: 0.499765
+Classification Report: 
+              precision    recall  f1-score   support
+
+           0       0.50      1.00      0.67     99951
+           1       0.60      0.00      0.00    100049
+
+    accuracy                           0.50    200000
+   macro avg       0.55      0.50      0.33    200000
+weighted avg       0.55      0.50      0.33    200000
+

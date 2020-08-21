@@ -1,0 +1,88 @@
+Pretrained path directory exists:  True
+Pretrained path:  ./model_pretrained/xlnet-scheduler/
+Train new?  True
+You have designated existing directory but wish to train a new model. 
+              The newly trained model will overwrite the existing model. 
+              Stop if you wish to keep the existing model in the directory
+Loading Dataset...
+Dataset Loaded...
+Train dataset size: 280000
+Test dataset size: 120000
+Total training steps:  10937.5
+Warm up steps:  320
+Training steps:  10617
+Begin Training...
+Epoch 0
+Batch 0 Loss : 0.0274941548705101
+Ground Truth: [1, 1, 1, 1] 	 Predicted: [0, 0, 0, 0]
+Batch 2000 Loss : 0.02331940457224846
+Ground Truth: [1, 1, 1, 0] 	 Predicted: [0, 0, 0, 0]
+Batch 4000 Loss : 0.02270023711025715
+Ground Truth: [1, 1, 0, 1] 	 Predicted: [1, 0, 1, 0]
+Batch 6000 Loss : 0.019465580582618713
+Ground Truth: [1, 1, 1, 1] 	 Predicted: [0, 1, 1, 0]
+Batch 8000 Loss : 0.022221894934773445
+Ground Truth: [1, 1, 0, 0] 	 Predicted: [1, 1, 1, 1]
+Batch 10000 Loss : 0.022429630160331726
+Ground Truth: [0, 1, 0, 0] 	 Predicted: [1, 0, 0, 1]
+Batch 12000 Loss : 0.02207690104842186
+Ground Truth: [0, 1, 1, 1] 	 Predicted: [1, 1, 1, 0]
+Batch 14000 Loss : 0.024015221744775772
+Ground Truth: [0, 0, 0, 0] 	 Predicted: [1, 0, 1, 1]
+Batch 16000 Loss : 0.018896128982305527
+Ground Truth: [0, 0, 1, 0] 	 Predicted: [0, 0, 1, 0]
+Batch 18000 Loss : 0.023145314306020737
+Ground Truth: [0, 0, 0, 1] 	 Predicted: [1, 0, 1, 0]
+Batch 20000 Loss : 0.022985484451055527
+Ground Truth: [1, 1, 1, 1] 	 Predicted: [0, 0, 1, 1]
+Batch 22000 Loss : 0.02542966976761818
+Ground Truth: [0, 0, 1, 0] 	 Predicted: [1, 1, 0, 1]
+Batch 24000 Loss : 0.020793922245502472
+Ground Truth: [1, 1, 0, 1] 	 Predicted: [1, 1, 1, 1]
+Batch 26000 Loss : 0.01971558667719364
+Ground Truth: [0, 0, 0, 1] 	 Predicted: [0, 0, 0, 1]
+Batch 28000 Loss : 0.023227931931614876
+Ground Truth: [1, 0, 1, 0] 	 Predicted: [0, 0, 1, 1]
+Batch 30000 Loss : 0.0224167350679636
+Ground Truth: [1, 0, 1, 0] 	 Predicted: [1, 1, 0, 1]
+Batch 32000 Loss : 0.020008902996778488
+Ground Truth: [1, 0, 1, 1] 	 Predicted: [1, 0, 0, 1]
+Batch 34000 Loss : 0.020562157034873962
+Ground Truth: [1, 0, 0, 1] 	 Predicted: [0, 0, 0, 1]
+Batch 36000 Loss : 0.020912904292345047
+Ground Truth: [0, 0, 0, 1] 	 Predicted: [0, 0, 0, 1]
+Batch 38000 Loss : 0.0208144374191761
+Ground Truth: [1, 0, 0, 1] 	 Predicted: [0, 1, 0, 1]
+Batch 40000 Loss : 0.023015964776277542
+Ground Truth: [0, 1, 0, 0] 	 Predicted: [1, 0, 1, 1]
+Batch 42000 Loss : 0.024165291339159012
+Ground Truth: [1, 1, 1, 0] 	 Predicted: [0, 1, 0, 1]
+Batch 44000 Loss : 0.020306594669818878
+Ground Truth: [0, 1, 1, 1] 	 Predicted: [0, 1, 1, 0]
+Batch 46000 Loss : 0.022007271647453308
+Ground Truth: [0, 0, 0, 1] 	 Predicted: [1, 0, 0, 0]
+Batch 48000 Loss : 0.021770918741822243
+Ground Truth: [0, 1, 1, 0] 	 Predicted: [0, 1, 0, 1]
+Batch 50000 Loss : 0.021215273067355156
+Ground Truth: [1, 0, 1, 1] 	 Predicted: [0, 0, 1, 1]
+Batch 52000 Loss : 0.02161114290356636
+Ground Truth: [1, 1, 0, 0] 	 Predicted: [0, 1, 1, 1]
+Batch 54000 Loss : 0.022186340764164925
+Ground Truth: [1, 0, 0, 0] 	 Predicted: [0, 1, 0, 0]
+Batch 56000 Loss : 0.0211085956543684
+Ground Truth: [0, 1, 1, 1] 	 Predicted: [0, 0, 1, 1]
+Batch 58000 Loss : 0.023864537477493286
+Ground Truth: [0, 0, 0, 0] 	 Predicted: [1, 1, 1, 1]
+Batch 60000 Loss : 0.02060682699084282
+Ground Truth: [0, 1, 1, 1] 	 Predicted: [1, 1, 0, 1]
+Batch 62000 Loss : 0.022548357024788857
+Ground Truth: [0, 0, 0, 1] 	 Predicted: [1, 1, 1, 1]
+Batch 64000 Loss : 0.02253744751214981
+Ground Truth: [0, 0, 1, 0] 	 Predicted: [1, 1, 1, 1]
+Batch 66000 Loss : 0.021780749782919884
+Ground Truth: [1, 0, 1, 0] 	 Predicted: [0, 0, 1, 1]
+Batch 68000 Loss : 0.02129199169576168
+Ground Truth: [1, 1, 1, 1] 	 Predicted: [0, 0, 1, 1]
+Time taken for epoch1 : 433.77 MINUTES
+Model saved at ./model_pretrained/xlnet-scheduler/saved_checkpoint_0
+Epoch 1

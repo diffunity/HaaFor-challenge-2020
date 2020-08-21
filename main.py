@@ -18,7 +18,11 @@ def main(args):
     print(f"Train dataset size: {len(train_set.dataset)}")
     print(f"Test dataset size: {len(test_set.dataset)}")
     
-    print("Total training steps: ",round((len(train_set.dataset) / (args.batch_size * args.gradient_accumulation_steps)) * args.epochs,2))
+    tot_training_steps = (len(train_set.dataset) / (args.batch_size * args.gradient_accumulation_steps)) * args.epochs
+    print("Total training steps: ",round(tot_training_steps,2))
+    args.training_steps = int(tot_training_steps) - args.warmup_steps
+    print("Warm up steps: ", args.warmup_steps)
+    print("Training steps: ",args.training_steps)
 
     loss_hist, acc_hist = train(args.model, AdamW, train_set, args)
     print("Training Finished...")
@@ -87,6 +91,16 @@ if __name__ == "__main__":
                         type=bool,
                         help="Train new?")
 
+    parser.add_argument("--warmup_steps",
+                        default=320,
+                        type=int,
+                        help="Warmup steps")
+    
+    parser.add_argument("--cls_pos",
+                        default=0,
+                        type=int,
+                        help="CLS position for NSP. -1 for XLNET 0 for the rest")
+
 # data-related
     parser.add_argument("--data_path",
                         default="./data/augmented_data.csv",
@@ -107,27 +121,23 @@ if __name__ == "__main__":
                         type=bool,
                         help="evaluate?")
 
-    args = parser.parse_args()
+# misc
+    parser.add_argument("--destination_folder",
+                        type=str,
+                        help="Destination folder for output")
 
-    # if args.model == "xlnet":
-    #     from transformers import XLNetModel, XLNetTokenizer
-    #     args.model = XLNetModel.from_pretrained("xlnet-base-cased")
-    #     args.tokenizer = XLNetTokenizer.from_pretrained("xlnet-base-cased")
-    # elif args.model == "albert":
-    #     from transformers import AlbertModel, AlbertTokenizer
-    #     args.model = AlbertModel.from_pretrained("albert-large-v2")
-    #     args.tokenizer = AlbertTokenizer.from_pretrained("albert-large-v2")
+    args = parser.parse_args()
 
     if "albert" in args.model:
         from transformers import AlbertModel, AlbertTokenizer
         model = AlbertModel
         args.tokenizer = AlbertTokenizer.from_pretrained(args.model)
-        args.destination_folder = "./result/albert/"
+        # args.destination_folder = "./result/albert/"
     elif "xlnet" in args.model:
         from transformers import XLNetModel, XLNetTokenizer
         model = XLNetModel
         args.tokenizer = XLNetTokenizer.from_pretrained(args.model)
-        args.destination_folder = "./result/xlnet/"
+        # args.destination_folder = "./result/xlnet/"
     else:
         raise NameError("Wrong model input")
 
