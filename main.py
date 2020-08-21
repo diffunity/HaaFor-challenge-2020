@@ -2,12 +2,12 @@ import os
 import time
 import argparse
 import torch
-from dataloader import dataloader
-from model import NSP, train, test, seed
-from transformers import AdamW
 import seaborn as sns
+from transformers import AdamW
 import matplotlib.pyplot as plt
 from sklearn.metrics import classification_report
+from dataloader import dataloader
+from model import NSP, ConvNSP, train, test, seed
 
 def main(args):
     
@@ -100,6 +100,11 @@ if __name__ == "__main__":
                         default=0,
                         type=int,
                         help="CLS position for NSP. -1 for XLNET 0 for the rest")
+    
+    parser.add_argument("--conv",
+                        default=False,
+                        type=bool,
+                        help="Convolutional pooling type?")
 
 # data-related
     parser.add_argument("--data_path",
@@ -171,7 +176,10 @@ if __name__ == "__main__":
         )
 
         model = model.from_pretrained(args.model)
-        model = NSP(model)
+        if args.conv:
+            model = ConvNSP(model, args)
+        else:
+            model = NSP(model)
         args.save_checkpoint = 0
 
     elif not os.path.isdir(args.pretrainedPATH):
@@ -180,7 +188,10 @@ if __name__ == "__main__":
         print(f"Creating new directory for {args.pretrainedPATH}")
         os.mkdir(args.pretrainedPATH)
         model = model.from_pretrained(args.model)
-        model = NSP(model)
+        if args.conv:
+            model = ConvNSP(model, args)
+        else:
+            model = NSP(model)
         args.save_checkpoint = 0
     args.model = model
 

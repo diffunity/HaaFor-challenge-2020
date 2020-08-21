@@ -1,0 +1,15 @@
+Pretrained path directory exists:  True
+Pretrained path:  ./model_pretrained/albert-conv/
+Train new?  True
+You have designated existing directory but wish to train a new model. 
+              The newly trained model will overwrite the existing model. 
+              Stop if you wish to keep the existing model in the directory
+Loading Dataset...
+Dataset Loaded...
+Train dataset size: 280000
+Test dataset size: 120000
+Total training steps:  21875.0
+Warm up steps:  320
+Training steps:  21555
+Begin Training...
+Epoch 0

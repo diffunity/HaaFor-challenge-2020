@@ -22,7 +22,6 @@ class NSP(torch.nn.Module):
 
         self.tanh = torch.nn.Tanh()
         self.pool = torch.nn.Linear(self.model.config.hidden_size, self.model.config.hidden_size)
-
         self.seq_prediction = torch.nn.Linear(self.model.config.hidden_size, 2)
 
     def forward(self, input_ids, token_type_ids, attention_mask, cls_pos=0):
@@ -38,9 +37,40 @@ class NSP(torch.nn.Module):
         pooled_output = self.pool(self.tanh(output[0][:,cls_pos]))
 
         return self.seq_prediction(pooled_output)
-    
-    @staticmethod
-    def opt(optimizer, model, args):
+
+class ConvNSP(torch.nn.Module):
+    def __init__(self, model, args):
+        super(ConvNSP, self).__init__()
+        self.model = model
+
+        # Pool hidden layers corresponding to the first token of the input sequence ([CLS])
+
+        self.tanh = torch.nn.Tanh()
+        self.relu = torch.nn.LeakyReLU()
+        self.cnn = torch.nn.Conv1d(self.model.config.hidden_size, self.model.config.hidden_size, 1, stride=2)
+        self.flatten = torch.nn.Flatten(start_dim=1)
+        self.linear = torch.nn.Linear(self.model.config.hidden_size * (self.model.config.num_hidden_layers//2), 2)
+        
+
+    def forward(self, input_ids, token_type_ids, attention_mask, cls_pos=0):
+        # the position of CLS being encoded is different for different models
+        # cls_pos = -1 : encoded at the end of the sequence (eg. XLNet)
+        # cls_pos = 0 : encoded at the beginning of the sequence (eg. BERT)
+        output = self.model(
+            input_ids=input_ids,
+            token_type_ids=token_type_ids,
+            attention_mask=attention_mask,
+            output_hidden_states=True
+        )
+
+        pooled_output = torch.cat(tuple([i[:,0].unsqueeze(1) for i in output[-1][1:]]), dim=1)
+        pooled_output = torch.transpose(pooled_output, 1, 2)
+        pooled_output = self.cnn(pooled_output)
+        pooled_output = self.flatten(pooled_output)
+        pooled_output = self.relu(pooled_output)
+        return self.linear(pooled_output)
+
+def opt(optimizer, model, args):
         no_decay = ["bias"]
             
         optimizer_grouped_parameters = [
@@ -52,13 +82,11 @@ class NSP(torch.nn.Module):
 
         return optimizer(optimizer_grouped_parameters, lr=args.lr)
 
-    
 def train(model, optimizer, dataset, args):
 
-    # model = NSP(model).to(device)
     model = model.to(device)
-    optimizer = NSP.opt(optimizer, model, args)
-    scheduler = get_cosine_schedule_with_warmup(optimizer, num_warmup_steps=args.warmup_steps, num_training_steps=args.training_steps)
+    optimizer = opt(optimizer, model, args)
+    # scheduler = get_cosine_schedule_with_warmup(optimizer, num_warmup_steps=args.warmup_steps, num_training_steps=args.training_steps)
     
     model.train()
 
@@ -91,7 +119,7 @@ def train(model, optimizer, dataset, args):
             if not data_e % args.gradient_accumulation_steps:
                 loss_hist.append(loss.item())
                 optimizer.step()
-                scheduler.step()
+                # scheduler.step()
                 optimizer.zero_grad()
                 acc_hist.append(accuracy)
                 accuracy = 0
@@ -116,10 +144,8 @@ def train(model, optimizer, dataset, args):
 
 
 def test(model, dataset, args):
-    # model = NSP(model).to(device)
     model = model.to(device)
     model.eval()
-
     gt = []
     pred = []
 
@@ -147,23 +173,30 @@ def test(model, dataset, args):
     return gt, pred
 
 
-# def train(model, tokenizer, optimizer, dataset, args):
-#     model = model.to(device)
+def evaluate(model, dataset, args):
+    model = model.to(device)
+    model.eval()
+    pred = []
+    
+    print(f"Begin evaluation on {args.file_path}")
+    ctime = time.time()
+    
+    with torch.no_grad():
+        for data_e, inp in enumerate(dataset):
 
-#     ## Hyperparameters
-#     batch_size = 4
-#     gradient_accumulation_steps = 8
-#     epochs = 3
-#     learning_rate = 3e-5
-#     weight_decay = 1e-2
-#     eps = qe-6
-#     num_warmup_steps = 0.08
-#     num_training_steps = int((len(dataset.dataset) / (batch_size * gradient_accumulation_steps)) * epochs)
+            input_ids, token_type_ids, attention_mask = inp["input_ids"].to(device), \
+                                                        inp["token_type_ids"].to(device), \
+                                                        inp["attention_mask"].to(device)
 
-#     no_decay = ["bias"]
-#     optimizer_grouped_parameters = [
-#         {'params':[p for n,p in model.named_parameters() if not any(nd in n for nd in no_decay)],
-#          "weight_decay": weight_decay},
-#         {'params': [p for n, p in model.named_parameters() if any(nd in n for nd in no_decay)],
-#          "weight_decay": weight_decay}
-#     ]
+            output = model(input_ids=input_ids,
+                           token_type_ids=token_type_ids,
+                           attention_mask=attention_mask)
+            
+
+            output = torch.eye(2)[torch.argmax(output, dim=1)].tolist()
+            pred.extend(output)
+
+            if not data_e % 200:
+                print(f"Time taken for data batch {data_e}: {round( (time.time() - ctime) / 60, 2)} MINUTES")
+                
+    return pred

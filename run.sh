@@ -32,3 +32,11 @@ nohup python main.py \
     --destination_folder ./result/xlnet-scheduler/ \
     --epochs 5 \
     --cls_pos -1 > ./result/xlnet-scheduler/train_xlnet_scheduler.txt
+
+-- albert conv
+nohup python main.py \
+    --conv True \
+    --batch_size 4 \
+    --gradient_accumulation_steps 16 \
+    --pretrainedPATH ./model_pretrained/albert-conv/ \
+    --destination_folder ./result/albert-conv/ > ./result/albert-conv/train_albert_base_conv.txt

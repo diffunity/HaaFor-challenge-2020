@@ -1,14 +1,14 @@
 import torch
-from torch.utils.data import DataLoader, Dataset, random_split
 import pandas as pd
+from torch.utils.data import DataLoader, Dataset, random_split
 
 class data_all_sep(Dataset):
     """
     Dataset module
     input: 
-        [[before_headline, before_body, after_headline, after_body], ... ]
+        [[before_headline, before_body, after_headline, after_body, label], ... ]
     output: 
-        "[CLS] before_headline [SEP] before_body [SEP] after_headline [SEP] after_body"
+        "[CLS] before_headline [SEP] before_body [SEP] after_headline [SEP] after_body", label
     """
     def __init__(self, tokenizer, data):
         super(data_all_sep,self).__init__()
@@ -33,97 +33,6 @@ class data_all_sep(Dataset):
         tokenized["token_type_ids"] = tokenized["token_type_ids"].squeeze(0)
         tokenized["attention_mask"] = tokenized["attention_mask"].squeeze(0)
         return tokenized, self.label[ix]
-
-# class data_add_sep(Dataset):
-#     """
-#     data module
-#     input: 
-#         [[before_headline, before_body, after_headline, after_body], ... ]
-#     output: 
-#         "[CLS] before_headline + before_body [SEP] after_headline + after_body"
-#     """
-#     def __init__(self, tokenizer, data):
-#         super(data_add_sep, self).__init__()
-#         self.data = data[:,:-1]
-#         # strip string data
-#         self.label = data[:,-1]
-#         self.tokenizer = tokenizer
-
-#     def __len__(self):
-#         return len(self.data)
-
-#     def __getitem__(self, ix):
-#         text1 = self.data[ix][0] + " " + self.data[ix][1]
-#         text2 = self.data[ix][2] + " " + self.data[ix][3]
-        
-#         tokenized = self.tokenizer(text1, text2, 
-#                                    return_tensors="pt", 
-#                                    max_length=512,
-#                                    truncation=True,
-#                                    padding="max_length")
-
-#         return tokenized, self.label[ix]
-
-# class data_body(Dataset):
-#     """
-#     data module
-#     input: 
-#         [[before_headline, before_body, after_headline, after_body], ... ]
-#     output: 
-#         "[CLS] before_body [SEP] after_body"
-#     """
-#     def __init__(self, tokenizer, data):
-#         super(data_body, self).__init__()
-#         self.data = data[:,:-1]
-#         # strip string data
-#         self.label = data[:,-1]
-#         self.tokenizer = tokenizer
-
-#     def __len__(self):
-#         return len(self.data)
-
-#     def __getitem__(self, ix):
-#         text1 = self.data[ix][1]
-#         text2 = self.data[ix][3]
-        
-#         tokenized = self.tokenizer(text1, text2,  
-#                                    return_tensors="pt", 
-#                                    max_length=512,
-#                                    truncation=True,
-#                                    padding="max_length")
-
-#         return tokenized, self.label[ix]
-
-
-# class data_headline(Dataset):
-#     """
-#     data module
-#     input: 
-#         [[before_headline, before_body, after_headline, after_body], ... ]
-#     output: 
-#         "[CLS] before_headline [SEP] after_headline"
-#     """
-#     def __init__(self, tokenizer, data):
-#         super(data_headline, self).__init__()
-#         self.data = data[:,:-1]
-#         # strip string data
-#         self.label = data[:,-1]
-#         self.tokenizer = tokenizer
-
-#     def __len__(self):
-#         return len(self.data)
-
-#     def __getitem__(self, ix):
-#         text1 = self.data[ix][0]
-#         text2 = self.data[ix][2]
-        
-#         tokenized = self.tokenizer(text1, text2, 
-#                                    return_tensors="pt", 
-#                                    max_length=512,
-#                                    truncation=True,
-#                                    padding="max_length")
-
-#         return tokenized
 
 class test_data_all_sep(Dataset):
     """
@@ -186,7 +95,6 @@ def testset_dataloader(tokenizer, args):
                              batch_size=args.batch_size,
                              shuffle=False,
                              num_workers=4)
-
     return test_loader
 
 
