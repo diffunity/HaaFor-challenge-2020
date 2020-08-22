@@ -98,25 +98,3 @@ def testset_dataloader(tokenizer, args):
                              shuffle=False,
                              num_workers=4)
     return test_loader
-
-
-if __name__ == "__main__":
-    # tokenizer = XLNetTokenizer.from_pretrained("xlnet-base-cased")
-
-    class args:
-        data_path = "./data/augmented_data.csv"
-        train_size = 0.5
-        batch_size = 5
-
-    args = args()
-
-    train_set, test_set = dataloader(tokenizer, args)
-    inp, tar = next(iter(train_set))
-    
-    input_ids = inp["input_ids"].squeeze()
-
-
-    print(input_ids)
-    for inpp in input_ids:
-        print(tokenizer.decode(inpp))
-    print(tar)
