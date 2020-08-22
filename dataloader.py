@@ -36,7 +36,7 @@ class data_all_sep(Dataset):
 
 class test_data_all_sep(Dataset):
     """
-    Dataset module for test set 
+    Dataset module for final evaluation 
     input: 
         [[before_headline, before_body, after_headline, after_body], ... ]
     output: 
@@ -71,7 +71,6 @@ def dataloader(tokenizer, args):
     Loading data
     """
     data = pd.read_csv(args.data_path, index_col=0).fillna("NONE").values
-    # dataset = eval(f"{args.preprocess}(data=data, tokenizer={tokenizer})")
     dataset = data_all_sep(tokenizer=tokenizer, data=data)
     n = len(data)
     train, test = random_split(dataset, [int(n*args.train_size), n-int(n*args.train_size)])
@@ -89,6 +88,9 @@ def dataloader(tokenizer, args):
     return train_loader, test_loader
 
 def testset_dataloader(tokenizer, args):
+    """
+    For final evaluation
+    """
     data = pd.read_csv(args.file_path, index_col=0).fillna("NONE").values
     dataset = test_data_all_sep(tokenizer=tokenizer, data=data)
     test_loader = DataLoader(dataset=dataset,

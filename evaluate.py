@@ -17,7 +17,7 @@ def main(args):
     pred = evaluate(args.model, dataset, args)
 
     result = pd.DataFrame(pred)
-
+    result.index += 1
     result.to_csv(args.output_path, header=False)
 
     print(f"Results successfully saved at {args.output_path}")
@@ -38,23 +38,18 @@ if __name__ == "__main__":
                         help="Testing batch size")
 
     parser.add_argument("--pretrainedPATH",
-                        default="./model_pretrained/",
+                        default="./model_pretrained/albert-proper/",
                         type=str,
                         help="Where to load the model from?")
 
 # data-related
     parser.add_argument("--file_path",
-                        default="./data/testing.csv",
+                        default="./data/evaluation.csv",
                         type=str)
 
     parser.add_argument("--output_path",
                         default="./submission/answer.csv",
                         type=str)
-
-# misc
-    parser.add_argument("--destination_folder",
-                        type=str,
-                        help="Destination folder for output")
 
     args = parser.parse_args()
 

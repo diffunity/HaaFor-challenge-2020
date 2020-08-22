@@ -137,3 +137,5 @@ example.txt
 toy/
 model_pretrained/
 bigpt.py
+gdrive
+wget-log

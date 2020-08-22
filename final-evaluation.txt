@@ -1,0 +1,23 @@
+Pretrained path directory exists:  True
+Pretrained path:  ./model_pretrained/albert-proper/
+Loading model from saved_checkpoint_4.pt ...
+Loading Dataset...
+Dataset Loaded...
+Dataset size: 100000
+Begin evaluation on ./data/evaluation.csv
+/workspace/JungHo/venv/lib/python3.6/site-packages/torch/serialization.py:657: SourceChangeWarning: source code of class 'model.NSP' has changed. you can retrieve the original source code by accessing the object's source attribute or set `torch.nn.Module.dump_patches = True` and use the patch tool to revert the changes.
+  warnings.warn(msg, SourceChangeWarning)
+Time taken for data batch 0: 0.0 MINUTES
+Time taken for data batch 2000: 1.83 MINUTES
+Time taken for data batch 4000: 3.65 MINUTES
+Time taken for data batch 6000: 5.47 MINUTES
+Time taken for data batch 8000: 7.3 MINUTES
+Time taken for data batch 10000: 9.12 MINUTES
+Time taken for data batch 12000: 10.94 MINUTES
+Time taken for data batch 14000: 12.77 MINUTES
+Time taken for data batch 16000: 14.59 MINUTES
+Time taken for data batch 18000: 16.42 MINUTES
+Time taken for data batch 20000: 18.24 MINUTES
+Time taken for data batch 22000: 20.07 MINUTES
+Time taken for data batch 24000: 21.9 MINUTES
+Results successfully saved at ./submission/answer.csv

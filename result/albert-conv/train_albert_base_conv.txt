@@ -13,3 +13,149 @@ Warm up steps:  320
 Training steps:  21555
 Begin Training...
 Epoch 0
+Batch 0 Loss : 0.0491626150906086
+Ground Truth: [1, 1, 1, 1] 	 Predicted: [0, 0, 0, 0]
+Batch 2000 Loss : 0.04208749532699585
+Ground Truth: [1, 1, 1, 0] 	 Predicted: [1, 1, 1, 0]
+Batch 4000 Loss : 0.04354603588581085
+Ground Truth: [1, 1, 0, 1] 	 Predicted: [1, 0, 1, 0]
+Batch 6000 Loss : 0.04269498586654663
+Ground Truth: [1, 1, 1, 1] 	 Predicted: [1, 1, 1, 0]
+Batch 8000 Loss : 0.04354379326105118
+Ground Truth: [1, 1, 0, 0] 	 Predicted: [1, 1, 1, 1]
+Batch 10000 Loss : 0.04187750443816185
+Ground Truth: [0, 1, 0, 0] 	 Predicted: [0, 0, 0, 0]
+Batch 12000 Loss : 0.04428042843937874
+Ground Truth: [0, 1, 1, 1] 	 Predicted: [1, 0, 1, 0]
+Batch 14000 Loss : 0.044987160712480545
+Ground Truth: [0, 0, 0, 0] 	 Predicted: [1, 1, 1, 1]
+Batch 16000 Loss : 0.0420181043446064
+Ground Truth: [0, 0, 1, 0] 	 Predicted: [0, 0, 0, 0]
+Batch 18000 Loss : 0.04300440847873688
+Ground Truth: [0, 0, 0, 1] 	 Predicted: [0, 1, 0, 0]
+Batch 20000 Loss : 0.04566723480820656
+Ground Truth: [1, 1, 1, 1] 	 Predicted: [0, 0, 0, 0]
+Batch 22000 Loss : 0.04367826133966446
+Ground Truth: [0, 0, 1, 0] 	 Predicted: [1, 1, 1, 0]
+Batch 24000 Loss : 0.04313427209854126
+Ground Truth: [1, 1, 0, 1] 	 Predicted: [1, 0, 0, 0]
+Batch 26000 Loss : 0.042911410331726074
+Ground Truth: [0, 0, 0, 1] 	 Predicted: [0, 0, 0, 0]
+Batch 28000 Loss : 0.04220947250723839
+Ground Truth: [1, 0, 1, 0] 	 Predicted: [1, 1, 1, 1]
+Batch 30000 Loss : 0.04281967878341675
+Ground Truth: [1, 0, 1, 0] 	 Predicted: [1, 0, 1, 1]
+Batch 32000 Loss : 0.04235701635479927
+Ground Truth: [1, 0, 1, 1] 	 Predicted: [1, 1, 1, 1]
+Batch 34000 Loss : 0.04305858165025711
+Ground Truth: [1, 0, 0, 1] 	 Predicted: [0, 0, 0, 0]
+Batch 36000 Loss : 0.043172962963581085
+Ground Truth: [0, 0, 0, 1] 	 Predicted: [0, 1, 0, 0]
+Batch 38000 Loss : 0.039418309926986694
+Ground Truth: [1, 0, 0, 1] 	 Predicted: [0, 1, 0, 1]
+Batch 40000 Loss : 0.03551498427987099
+Ground Truth: [0, 1, 0, 0] 	 Predicted: [0, 1, 0, 1]
+Batch 42000 Loss : 0.04268362373113632
+Ground Truth: [1, 1, 1, 0] 	 Predicted: [1, 1, 0, 0]
+Batch 44000 Loss : 0.035591162741184235
+Ground Truth: [0, 1, 1, 1] 	 Predicted: [0, 0, 1, 1]
+Batch 46000 Loss : 0.04785361513495445
+Ground Truth: [0, 0, 0, 1] 	 Predicted: [0, 0, 1, 1]
+Batch 48000 Loss : 0.03682064265012741
+Ground Truth: [0, 1, 1, 0] 	 Predicted: [0, 1, 0, 0]
+Batch 50000 Loss : 0.022840160876512527
+Ground Truth: [1, 0, 1, 1] 	 Predicted: [1, 0, 0, 1]
+Batch 52000 Loss : 0.029722992330789566
+Ground Truth: [1, 1, 0, 0] 	 Predicted: [1, 1, 0, 1]
+Batch 54000 Loss : 0.036958131939172745
+Ground Truth: [1, 0, 0, 0] 	 Predicted: [1, 0, 0, 1]
+Batch 56000 Loss : 0.03261783719062805
+Ground Truth: [0, 1, 1, 1] 	 Predicted: [0, 1, 0, 0]
+Batch 58000 Loss : 0.029646839946508408
+Ground Truth: [0, 0, 0, 0] 	 Predicted: [0, 1, 0, 0]
+Batch 60000 Loss : 0.03349732607603073
+Ground Truth: [0, 1, 1, 1] 	 Predicted: [0, 1, 0, 1]
+Batch 62000 Loss : 0.03463328257203102
+Ground Truth: [0, 0, 0, 1] 	 Predicted: [0, 1, 0, 0]
+Batch 64000 Loss : 0.04462701454758644
+Ground Truth: [0, 0, 1, 0] 	 Predicted: [0, 1, 0, 1]
+Batch 66000 Loss : 0.035918835550546646
+Ground Truth: [1, 0, 1, 0] 	 Predicted: [1, 0, 1, 1]
+Batch 68000 Loss : 0.027716783806681633
+Ground Truth: [1, 1, 1, 1] 	 Predicted: [0, 1, 1, 1]
+Time taken for epoch1 : 172.63 MINUTES
+Model saved at ./model_pretrained/albert-conv/saved_checkpoint_0
+Epoch 1
+Batch 0 Loss : 0.014154919423162937
+Ground Truth: [1, 0, 0, 0] 	 Predicted: [1, 0, 0, 0]
+Batch 2000 Loss : 0.021950818598270416
+Ground Truth: [1, 0, 1, 0] 	 Predicted: [1, 0, 1, 0]
+Batch 4000 Loss : 0.0357060432434082
+Ground Truth: [1, 0, 0, 0] 	 Predicted: [1, 0, 1, 1]
+Batch 6000 Loss : 0.028529582545161247
+Ground Truth: [1, 0, 0, 1] 	 Predicted: [1, 0, 0, 1]
+Batch 8000 Loss : 0.03455434739589691
+Ground Truth: [1, 0, 1, 0] 	 Predicted: [1, 0, 0, 0]
+Batch 10000 Loss : 0.03166551515460014
+Ground Truth: [1, 1, 0, 1] 	 Predicted: [0, 0, 0, 1]
+Batch 12000 Loss : 0.04023474082350731
+Ground Truth: [0, 1, 0, 0] 	 Predicted: [1, 1, 0, 1]
+Batch 14000 Loss : 0.032758407294750214
+Ground Truth: [0, 0, 1, 1] 	 Predicted: [0, 0, 1, 0]
+Batch 16000 Loss : 0.03795112669467926
+Ground Truth: [1, 1, 0, 1] 	 Predicted: [1, 0, 0, 1]
+Batch 18000 Loss : 0.04255855083465576
+Ground Truth: [1, 0, 1, 1] 	 Predicted: [0, 1, 1, 1]
+Batch 20000 Loss : 0.028152817860245705
+Ground Truth: [1, 1, 0, 0] 	 Predicted: [1, 1, 1, 0]
+Batch 22000 Loss : 0.02308223769068718
+Ground Truth: [1, 1, 0, 1] 	 Predicted: [1, 1, 0, 1]
+Batch 24000 Loss : 0.040640730410814285
+Ground Truth: [1, 1, 1, 0] 	 Predicted: [1, 0, 1, 1]
+Batch 26000 Loss : 0.035278551280498505
+Ground Truth: [0, 0, 0, 0] 	 Predicted: [1, 0, 0, 0]
+Batch 28000 Loss : 0.012271197512745857
+Ground Truth: [1, 0, 1, 0] 	 Predicted: [1, 0, 1, 0]
+Batch 30000 Loss : 0.02754729613661766
+Ground Truth: [1, 1, 0, 0] 	 Predicted: [1, 1, 0, 0]
+Batch 32000 Loss : 0.039927806705236435
+Ground Truth: [1, 1, 0, 1] 	 Predicted: [0, 1, 0, 0]
+Batch 34000 Loss : 0.04766382277011871
+Ground Truth: [1, 0, 1, 1] 	 Predicted: [1, 0, 0, 0]
+Batch 36000 Loss : 0.024672042578458786
+Ground Truth: [0, 1, 1, 0] 	 Predicted: [0, 1, 1, 1]
+Batch 38000 Loss : 0.0427604541182518
+Ground Truth: [0, 0, 1, 0] 	 Predicted: [0, 0, 0, 1]
+Batch 40000 Loss : 0.03321484476327896
+Ground Truth: [1, 1, 0, 1] 	 Predicted: [0, 1, 1, 1]
+Batch 42000 Loss : 0.030951842665672302
+Ground Truth: [0, 1, 1, 0] 	 Predicted: [1, 1, 1, 0]
+Batch 44000 Loss : 0.026335090398788452
+Ground Truth: [0, 0, 1, 1] 	 Predicted: [0, 0, 0, 1]
+Batch 46000 Loss : 0.0163152813911438
+Ground Truth: [0, 0, 1, 1] 	 Predicted: [0, 0, 1, 1]
+Batch 48000 Loss : 0.039914991706609726
+Ground Truth: [1, 1, 1, 1] 	 Predicted: [1, 1, 1, 0]
+Batch 50000 Loss : 0.043980903923511505
+Ground Truth: [1, 1, 0, 1] 	 Predicted: [0, 0, 1, 1]
+Batch 52000 Loss : 0.019547253847122192
+Ground Truth: [0, 1, 1, 0] 	 Predicted: [0, 1, 1, 0]
+Batch 54000 Loss : 0.03752518072724342
+Ground Truth: [0, 1, 1, 1] 	 Predicted: [1, 1, 0, 1]
+Batch 56000 Loss : 0.04715592414140701
+Ground Truth: [1, 1, 1, 1] 	 Predicted: [0, 1, 0, 1]
+Batch 58000 Loss : 0.04097147658467293
+Ground Truth: [0, 1, 0, 0] 	 Predicted: [1, 0, 0, 0]
+Batch 60000 Loss : 0.03988439589738846
+Ground Truth: [1, 0, 1, 0] 	 Predicted: [0, 1, 1, 0]
+Batch 62000 Loss : 0.02438509836792946
+Ground Truth: [0, 1, 0, 1] 	 Predicted: [0, 0, 0, 1]
+Batch 64000 Loss : 0.05399629846215248
+Ground Truth: [1, 0, 0, 0] 	 Predicted: [1, 1, 1, 1]
+Batch 66000 Loss : 0.04205445945262909
+Ground Truth: [0, 1, 1, 0] 	 Predicted: [1, 1, 1, 1]
+Batch 68000 Loss : 0.04579547792673111
+Ground Truth: [0, 0, 0, 0] 	 Predicted: [0, 0, 1, 0]
+Time taken for epoch2 : 172.61 MINUTES
+Model saved at ./model_pretrained/albert-conv/saved_checkpoint_1
+Final Accuracy: 0.70475

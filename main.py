@@ -24,18 +24,18 @@ def main(args):
     print("Warm up steps: ", args.warmup_steps)
     print("Training steps: ",args.training_steps)
 
-    loss_hist, acc_hist = train(args.model, AdamW, train_set, args)
-    print("Training Finished...")
+    # loss_hist, acc_hist = train(args.model, AdamW, train_set, args)
+    # print("Training Finished...")
 
-    plt.plot(loss_hist)
-    plt.savefig(args.destination_folder+"loss_graph.png")
-    print(f"Loss curve graphed at {args.destination_folder}loss_graph.png...")
+    # plt.plot(loss_hist)
+    # plt.savefig(args.destination_folder+"loss_graph.png")
+    # print(f"Loss curve graphed at {args.destination_folder}loss_graph.png...")
     
-    plt.clf()
+    # plt.clf()
 
-    plt.plot(acc_hist)
-    plt.savefig(args.destination_folder+"acc_graph.png")
-    print(f"Loss curve graphed at {args.destination_folder}acc_graph.png...")
+    # plt.plot(acc_hist)
+    # plt.savefig(args.destination_folder+"acc_graph.png")
+    # print(f"Loss curve graphed at {args.destination_folder}acc_graph.png...")
 
     if args.evaluate:
         gt, pred = test(args.model, test_set, args)
@@ -87,7 +87,7 @@ if __name__ == "__main__":
                         help="Where to load the model from?")
 
     parser.add_argument("--train_new",
-                        default=True,
+                        default=False,
                         type=bool,
                         help="Train new?")
 

@@ -36,7 +36,7 @@ class NSP(torch.nn.Module):
 
         pooled_output = self.pool(self.tanh(output[0][:,cls_pos]))
 
-        return self.seq_prediction(pooled_output)
+        return self.seq_prediction(self.tanh(pooled_output))
 
 class ConvNSP(torch.nn.Module):
     def __init__(self, model, args):
@@ -193,10 +193,10 @@ def evaluate(model, dataset, args):
                            attention_mask=attention_mask)
             
 
-            output = torch.eye(2)[torch.argmax(output, dim=1)].tolist()
+            output = torch.eye(2)[torch.argmax(output, dim=1)].type(torch.int).tolist()
             pred.extend(output)
 
-            if not data_e % 200:
+            if not data_e % 2000:
                 print(f"Time taken for data batch {data_e}: {round( (time.time() - ctime) / 60, 2)} MINUTES")
                 
     return pred

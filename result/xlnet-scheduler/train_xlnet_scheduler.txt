@@ -158,4 +158,4 @@ Batch 68000 Loss : 0.024311326444149017
 Ground Truth: [0, 0, 0, 0] 	 Predicted: [1, 1, 1, 1]
 Time taken for epoch2 : 433.42 MINUTES
 Model saved at ./model_pretrained/xlnet-scheduler/saved_checkpoint_1
-Epoch 2
+Final Accuracy: 0.486
