@@ -54,7 +54,7 @@
 | XLNet       | xlnet-base-cased | 128    | 2 | 1e-5 | 1e-2 | cosine | 0.486 |
 | **Albert**      | **albert-base-v2**   | **32**     | **5** | **1e-5** | **1e-2** | **None** | **0.7278** |
 | Albert      | albert-base-v2   | 128    | 5 | 1e-5 | 1e-2 | cosine | 0.7023 |
-| Albert (ConvNSP)| albert-base-v2   | 64     | 2 | 1e-5 | 1e-2 | None | 0.7045 |
+| Albert (ConvNSP)| albert-base-v2   | 64     | 7 | 1e-5 | 1e-2 | None | 0.7401 |
 
 
 * Due to the lack of computing power and time, models were not properly trained over an appropriate number of training cycles. Albert (ConvNSP) seems to have a good potential in achieving better performance under appropriate hyperparameter settings.

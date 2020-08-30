@@ -1,4 +1,4 @@
-# Byte-compiled / optimized / DLL files
+i# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
@@ -140,3 +140,5 @@ bigpt.py
 gdrive
 wget-log
 submission/
+result/albert-conv/acc_graph.png
+result/albert-conv/loss_graph.png
