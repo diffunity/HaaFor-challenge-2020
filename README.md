@@ -1,6 +1,8 @@
 # HaaFor Challenge 2020
 **Task**: Given two news articles with headlines, classify if the first article chronologically precedes the second article.
 
+**Result**: ALBERT - Evaluation: 70.04% - 4th place 
+
 ## Data
 
 ### Data Preprocessing
@@ -52,14 +54,15 @@
 | ----------- |------------- | ----------- | ------ | ------------- | ------------ | ---------- | -------- |
 | XLNet       | xlnet-base-cased | 64     | 2 | 1e-5 | 1e-2 | None | 0.5075 |
 | XLNet       | xlnet-base-cased | 128    | 2 | 1e-5 | 1e-2 | cosine | 0.486 |
-| **Albert**      | **albert-base-v2**   | **32**     | **5** | **1e-5** | **1e-2** | **None** | **0.7278** |
+| Albert      | albert-base-v2   | 32     | 5 | 1e-5 | 1e-2 | None | 0.7278 |
 | Albert      | albert-base-v2   | 128    | 5 | 1e-5 | 1e-2 | cosine | 0.7023 |
-| Albert (ConvNSP)| albert-base-v2   | 64     | 7 | 1e-5 | 1e-2 | None | 0.7401 |
+| **Albert (ConvNSP)**| **albert-base-v2**   | **64**     | **7** | **1e-5** | **1e-2** | **None** | **0.7401** |
 
 
-* Due to the lack of computing power and time, models were not properly trained over an appropriate number of training cycles. Albert (ConvNSP) seems to have a good potential in achieving better performance under appropriate hyperparameter settings.
+* Due to the lack of computing power and time, models were not properly trained over an appropriate number of training cycles. Albert (ConvNSP) seems to have a good potential in achieving better performance under appropriate hyperparameter settings
+  * Achieved better performance than the submitted Albert
 
-* Ensembles could also have achieved better performance.
+* Ensembles could also have achieved better performance
 
 </br>
 
