@@ -1,4 +1,6 @@
 # HaaFor Challenge 2020
+[Competition Link](https://www.haafor.com/challenge/)
+
 **Task**: Given two news articles with headlines, classify if the first article chronologically precedes the second article.
 
 **Result**: ALBERT - Evaluation: 70.04% - 4th place 
